@@ -44,25 +44,15 @@ public class UIController {
 				
 		if(response.getStatusCode()==HttpStatus.OK) {
 			Booking[] bookings = response.getBody();
-//			for(Booking booking : bookings) {
-//				String bookingDateTimeString = getFormattedDate(booking.getCreatedAt());
-//				booking.setCreatedAt(bookingDateTimeString);
-//			}
+//			
 			model.addAttribute("bookings",bookings);
 			
 			return "bookingslist";
 		}
 		
 		return "index";
-	}
+	}	
 	
-	
-	private String getFormattedDate(LocalDateTime createdAt) {
-		// TODO Auto-generated method stub
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		
-		return createdAt.format(formatter);
-	}
 
 	@GetMapping("/allcabs")
 	public String getAllCabs(Model model) {

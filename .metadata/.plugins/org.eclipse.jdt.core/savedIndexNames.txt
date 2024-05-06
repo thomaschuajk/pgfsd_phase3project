@@ -188,6 +188,5 @@ INDEX VERSION 1.134+C:\Users\Admin\Documents\Courses\Simplilearn_PG_FSD\Phase_3_
 4137028731.index
 769370999.index
 3880071560.index
-3232152157.index
 3906434794.index
 1411242467.index

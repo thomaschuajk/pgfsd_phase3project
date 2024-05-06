@@ -3437,3 +3437,9 @@ Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was
 2024-05-06 10:59:36,453 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-05-06 10:59:36,453 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-05-06 10:59:36,454 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Admin\Documents\Courses\Simplilearn_PG_FSD\Phase_3_API_EndPoints_and_Communication\PhaseEndProject\spring-cloud-bookcabsdemo-ui-microsvc\src\test\resources
+2024-05-06 11:00:28,201 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-06 11:00:28,202 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-05-06 11:00:28,203 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Admin\Documents\Courses\Simplilearn_PG_FSD\Phase_3_API_EndPoints_and_Communication\PhaseEndProject\spring-cloud-bookcabsdemo-ui-microsvc\src\test\resources
+2024-05-06 11:33:21,304 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-06 11:33:21,312 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-05-06 11:33:21,314 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Admin\Documents\Courses\Simplilearn_PG_FSD\Phase_3_API_EndPoints_and_Communication\PhaseEndProject\spring-cloud-bookcabsdemo-ui-microsvc\src\test\resources
