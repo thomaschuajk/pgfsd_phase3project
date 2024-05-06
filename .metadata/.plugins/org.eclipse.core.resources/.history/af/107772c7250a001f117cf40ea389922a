@@ -1,0 +1,50 @@
+package com.bookcabcloud.demo;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.client.RestTemplate;
+
+@Controller
+public class UIController {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
+	
+	@GetMapping("/bookingform")
+	public String getBookingForm() {
+		return "bookingform";
+	}
+	
+	@GetMapping("/allcabs")
+	public String getAllCabs(Model model) {
+		ResponseEntity<Cab[]> response = restTemplate.getForEntity("http://localhost:8080/cabs/all", Cab[].class);
+		if(response.getStatusCode()==HttpStatus.OK) {
+			Cab[] cabs = response.getBody();
+			model.addAttribute("cabs",cabs);
+			return "cabslist";
+		}
+		return "index";
+	}
+	
+	@GetMapping("/add-booking")
+	public String addBooking(String fromLoc, String toLoc, int seaters, Model model) {
+		String url = "http://bookcabs-microsvc/bookings/addbooking"+"?fromLoc="+fromLoc+"&toLoc="+toLoc+"&seaters="+seaters;
+		System.out.println(url);
+		ResponseEntity<Booking> booking = restTemplate.getForEntity(url,Booking.class);
+		model.addAttribute("booking",booking);
+		return "bookingdetail";
+	}
+	
+
+}

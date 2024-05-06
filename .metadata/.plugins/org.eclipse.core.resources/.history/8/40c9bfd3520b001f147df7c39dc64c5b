@@ -1,0 +1,120 @@
+package com.bookcabcloud.demo;
+
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+@Controller
+public class UIController {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
+	
+	@GetMapping({"/bookingform","cancel-trip"})
+	public String getBookingForm() {
+		return "bookingform";
+	}
+	
+	@GetMapping("/allbookings")
+	public String getAllBookings(Model model) {
+		/*
+		 * Cannot use:
+		 * restTemplate.getForEntity("http://localhost:8080/cabs/all", Cab[].class);
+		 * This will cause "No available instance of localhost" exception error with @LoadBalanced implemented
+		 * Must use the service name registered with Eureka server in restTemplate calls
+		 * */
+		ResponseEntity<Booking[]> response = restTemplate.getForEntity("http://bookcabs-microsvc/cabs/all", Booking[].class);
+				
+		if(response.getStatusCode()==HttpStatus.OK) {
+			Booking[] bookings = response.getBody();
+			model.addAttribute("bookings",bookings);
+			model.addAttribute("localDateTimeFormat", DateTimeFormatter.ofPattern("yyyyMMdd HH:mm:ss"));
+			return "bookingslist";
+		}
+		
+		return "index";
+	}
+	
+	
+	@GetMapping("/allcabs")
+	public String getAllCabs(Model model) {
+		/*
+		 * Cannot use:
+		 * restTemplate.getForEntity("http://localhost:8080/cabs/all", Cab[].class);
+		 * This will cause "No available instance of localhost" exception error with @LoadBalanced implemented
+		 * Must use the service name registered with Eureka server in restTemplate calls
+		 * */
+		ResponseEntity<Cab[]> response = restTemplate.getForEntity("http://bookcabs-microsvc/cabs/all", Cab[].class);
+		
+		System.out.println("AFTER PINGING FOR CABRESTCONTROLLER: "+response.getStatusCode().toString());
+		if(response.getStatusCode()==HttpStatus.OK) {
+			Cab[] cabs = response.getBody();
+			model.addAttribute("cabs",cabs);
+			return "cabslist";
+		}
+		
+		return "index";
+	}
+	
+	@GetMapping("/show-trip")
+	public String createTrip(String fromLoc, String toLoc, int seaters, Model model) {
+		
+		/*
+		 * Cannot use:
+		 * restTemplate.getForEntity("http://localhost:8080/bookings/addbookings", Cab[].class);
+		 * This will cause "No available instance of localhost" exception error with @LoadBalanced implemented
+		 * Must use the service name registered with Eureka server in restTemplate calls
+		 * */
+		
+		String url = "http://bookcabs-microsvc:8080/bookings/showtrip";
+		
+		UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url)
+		        .queryParam("fromLoc", fromLoc)
+		        .queryParam("toLoc", toLoc)
+		        .queryParam("seaters", String.valueOf(seaters));
+		
+		String urlQueryParams = builder.toUriString();		
+				
+		ResponseEntity<Trip> response = restTemplate.getForEntity(urlQueryParams,Trip.class);		
+		
+		if(response.getStatusCode()==HttpStatus.OK) {
+			Trip createdTrip = response.getBody();
+			model.addAttribute("trip",createdTrip);
+			return "tripdetail";
+		}
+		
+		return "index";
+	}
+	
+	@GetMapping("add-booking")
+	public String addBooking(Model model) {
+		
+		String url = "http://bookcabs-microsvc:8080/bookings/addbooking";
+		ResponseEntity<Booking> response = restTemplate.getForEntity(url,Booking.class);
+		
+		if(response.getStatusCode()==HttpStatus.OK) {
+			Booking addedBooking = response.getBody();
+			model.addAttribute("booking",addedBooking);
+			return "bookingdetail";
+		}
+		
+		return "index";
+	}
+
+}

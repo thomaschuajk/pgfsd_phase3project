@@ -1,0 +1,80 @@
+package com.bookcabcloud.demo;
+
+import java.time.LocalDateTime;
+
+public class Booking {
+
+	int bookingId;
+	
+	String cabId;
+
+	LocalDateTime createdAt;
+	
+	String createdAtString;
+	
+	String fromLoc;
+	
+	String toLoc;
+	
+	String fare;
+
+	public int getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public String getCabId() {
+		return cabId;
+	}
+
+	public void setCabId(String cabId) {
+		this.cabId = cabId;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	public String getCreatedAtString() {
+		return createdAtString;
+	}
+
+	public void setCreatedAt(String createdAtString) {
+		this.createdAtString = createdAtString;
+	}
+
+
+	public String getFromLoc() {
+		return fromLoc;
+	}
+
+	public void setFromLoc(String fromLoc) {
+		this.fromLoc = fromLoc;
+	}
+
+	public String getToLoc() {
+		return toLoc;
+	}
+
+	public void setToLoc(String toLoc) {
+		this.toLoc = toLoc;
+	}
+
+	public String getFare() {
+		return fare;
+	}
+
+	public void setFare(String fare) {
+		this.fare = fare;
+	}
+	
+	
+
+}

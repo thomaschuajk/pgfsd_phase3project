@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Trip Detail</title>
+</head>
+<body>
+
+<center>
+<h1>Trip Detail</h1>
+
+<center>
+<h2>Booking Successful!</h2>
+</br>
+</br>
+Booking Number: ${booking.bookingId}
+</br>
+</br>
+Cab Number: ${booking.cabId};
+</br>
+</br>
+Pick Up From: ${booking.fromLoc};
+</br>
+</br>
+Drop Off At: ${booking.toLoc };
+<br>
+</br>
+Fare: ${booking.fare };
+</br>
+</br>
+</br>
+<form action="add-booking" method="get">	
+	<input type="submit" value="Book A Cab!">&nbsp&nbsp
+</form>
+&nbsp&nbsp
+<form action="cancel-trip" method="get">	
+	<input type="submit" value="Book A Cab!">&nbsp&nbsp
+</form>
+
+
+</center>
+
+
+
+
+</body>
+</html>

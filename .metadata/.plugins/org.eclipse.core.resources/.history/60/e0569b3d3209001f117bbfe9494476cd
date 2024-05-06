@@ -1,0 +1,69 @@
+package com.bookcabcloud.demo;
+
+import java.util.Date;
+import java.util.Random;
+
+//@Table(name="job")
+//@Entity
+public class Job {
+	
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String jobId;
+	
+	private String fromLocation;
+	
+	private String toLocation;
+	
+	private double fare;
+
+	
+	public String getFromLocation() {
+		return fromLocation;
+	}
+
+	public void setFromLocation(String fromLocation) {
+		this.fromLocation = fromLocation;
+	}
+
+	public String getToLocation() {
+		return toLocation;
+	}
+
+	public void setToLocation(String toLocation) {
+		this.toLocation = toLocation;
+	}
+
+	public double getFare() {
+		return fare;
+	}
+
+	public Job(String fromLocation, String toLocation) {
+		this.jobId = GenerateJobId();
+		this.fromLocation = fromLocation;
+		this.toLocation = toLocation;
+		this.fare = CalculateFare();
+	}
+
+	private String GenerateJobId() {
+		Random rand = new Random();		
+		String jobId = String.valueOf(rand.hashCode());
+		return jobId;
+	}
+
+	private double CalculateFare() {
+		Random rand = new Random();
+		double minFare = 10.00d;
+		double fare = minFare+rand.nextDouble(5.00d, 30.00d);
+		return fare;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}
+

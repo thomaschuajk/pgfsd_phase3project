@@ -1,0 +1,19 @@
+package com.bookcabcloud.demo;
+
+public class Cab {
+	
+	String cabId;
+	
+	String driverId;
+	
+	int seatersCap;
+	
+	String cabStatus;
+	
+	String toLoc;
+	
+	String fromLoc;
+	
+	int bookingId;
+
+}

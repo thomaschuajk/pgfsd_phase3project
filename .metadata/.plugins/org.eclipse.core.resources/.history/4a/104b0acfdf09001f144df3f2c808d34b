@@ -1,0 +1,13 @@
+package com.bookcabcloud.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringCloudBookcabsdemoUiMicrosvcApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCloudBookcabsdemoUiMicrosvcApplication.class, args);
+	}
+
+}

@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<body>
+<center>
+<h1>Cab Booking App</h1>
+<a href="bookingform">Start Booking</a> &nbsp&nbsp
+
+<a href="cabslist">Get Cabs List</a>&nbsp&nbsp
+
+<a href="bookingslist">Get Cabs List</a>&nbsp&nbsp
+</center>
+</body>

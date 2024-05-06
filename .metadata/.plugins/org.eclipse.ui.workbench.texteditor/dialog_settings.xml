@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="@OneToOne"/>
+		<list key="findhistory">
+			<item value="@OneToOne"/>
+			<item value="&#x0D;&#x0A;&#x09;@ManyToOne&#x0D;&#x0A;&#x09;@JoinColumn(name=&quot;cabId&quot;)&#x0D;&#x0A;&#x09;private Cab cab;"/>
+		</list>
+	</section>
+</section>

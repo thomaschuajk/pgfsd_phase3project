@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bookings List</title>
+</head>
+<body>
+
+<h1>All Bookings</h1>
+<table border="1">
+	<tr>
+		<th>Booking Id</th>
+		<th>Cab Id</th>	
+		<th>Booking Time</th>
+		<th>Pick Up Location</th>	
+		<th>Drop Off Location</th>
+		<th>Fare ($)</th>	
+	</tr>
+	<c:forEach var="booking" items="${bookings}">
+		<tr>
+			<td>${booking.bookingId }</td>
+			<td>${booking.cabId}</td>
+			<td>${booking.createdAtString}</td>
+			<td>${booking.fromLoc}</td>
+			<td>${booking.toLoc}</td>
+			<td>${booking.fare}</td>			
+		</tr>
+	</c:forEach>
+</table>
+
+<br><br>
+<a href="/">Main Page</a>
+<br><br>
+
+</body>
+</html>
